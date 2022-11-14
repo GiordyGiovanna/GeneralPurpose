@@ -1,1 +1,3 @@
 Traker of sudoku winrates and stuff
+
+Password and password controller
