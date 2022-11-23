@@ -3,9 +3,9 @@ using System.Windows.Forms.Design;
 
 namespace PasswordAndRecordChecker
 {
-    public partial class Form1 : Form
+    public partial class PswModal : Form
     {
-        public Form1()
+        public PswModal()
         {
             InitializeComponent();
         }
@@ -50,20 +50,35 @@ namespace PasswordAndRecordChecker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(critStr(str : "pippo"));
+            //MessageBox.Show(critStr(str : "pippo"));
+            main();
+        }
 
+        private void main()
+        {
             List<string> lstProcesses = new List<string>();
-            lstProcesses = takeProcesses(fileName : "");
+            lstProcesses = takeProcesses(fileName: "");
+
+            Process[] processesOld = Process.GetProcesses();
+            Process[] processesNew;
+
 
             while (true)
-                foreach (var item in Process.GetProcesses())
-                    if (lstProcesses.Contains(item.ProcessName))
-                    {
-                        showForm();
-                        return;
+            {
+                processesNew = Process.GetProcesses();
+                if (processesOld != processesNew)
+                {
+                    processesOld = processesNew;
+                    foreach (var item in processesOld)
+                        if (lstProcesses.Contains(item.ProcessName))
+                        {
+                            showForm();
+                            return;
 
-                    }
-
+                        }
+                }
+                Thread.Sleep(2000);
+            }
         }
     }
 }
