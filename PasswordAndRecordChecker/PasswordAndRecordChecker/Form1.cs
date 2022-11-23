@@ -28,12 +28,39 @@ namespace PasswordAndRecordChecker
             return s;
         }
 
+        private string decodeStr(string str)
+        {
+            double a = 0;
+            double b = 1;
+            double c = 1;
+            string s = string.Empty;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                c = a + b;
+                a = b;
+                b = c;
+                s += this.s[calculateIndexForDecode(ch: str[i], fibn: c)];
+            }
+
+            return s;
+        }
+
         private int calculateIndex(char ch, double fibn)
         {
             int first;
             int ret;
             first = this.s.IndexOf(ch.ToString().ToUpper());
             ret = Convert.ToInt32((fibn + first) % this.s.Length);
+            return ret;
+        }
+
+        private int calculateIndexForDecode(char ch, double fibn)
+        {
+            int first;
+            int ret;
+            first = this.s.IndexOf(ch.ToString().ToUpper());
+            ret = Convert.ToInt32((fibn - first) % this.s.Length);
             return ret;
         }
         private void showForm()
@@ -50,8 +77,9 @@ namespace PasswordAndRecordChecker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show(critStr(str : "pippo"));
-            main();
+            critStr(str: "pippo");
+            decodeStr(critStr(str : "pippo"));
+            //main();
         }
 
         private void main()
