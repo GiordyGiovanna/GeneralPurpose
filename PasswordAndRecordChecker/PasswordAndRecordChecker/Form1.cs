@@ -60,8 +60,8 @@ namespace PasswordAndRecordChecker
             int first;
             int ret;
             first = this.s.IndexOf(ch.ToString().ToUpper());
-            ret = Convert.ToInt32((fibn - first) % this.s.Length);
-            return ret;
+            ret = Convert.ToInt32((first - fibn) % this.s.Length);
+            return ret < 0 ? ret * -1 : ret;
         }
         private void showForm()
         {
@@ -77,8 +77,10 @@ namespace PasswordAndRecordChecker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            critStr(str: "pippo");
-            decodeStr(critStr(str : "pippo"));
+            
+            MessageBox.Show(critStr(str: "pippo eandato a fare una passeggiata sul sentiero lungo il ufime e ha il cazzo lunzogo"));
+            MessageBox.Show(decodeStr(critStr(str: "pippo eandato a fare una passeggiata sul sentiero lungo il ufime e ha il cazzo lunzogo")));
+            
             //main();
         }
 
