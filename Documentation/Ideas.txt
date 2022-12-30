@@ -1,3 +1,7 @@
 Traker of sudoku winrates and stuff
 
 Password and password controller
+
+Gestore ore in più per lavoro
+
+Gestore Citazioni
