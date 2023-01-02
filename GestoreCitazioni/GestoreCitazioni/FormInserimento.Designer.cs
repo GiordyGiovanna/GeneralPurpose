@@ -33,6 +33,8 @@
             this.btnInserisci = new System.Windows.Forms.Button();
             this.txtTit = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAutore = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -80,11 +82,29 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Titolo:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(37, 398);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 32);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Autore:";
+            // 
+            // txtAutore
+            // 
+            this.txtAutore.Location = new System.Drawing.Point(134, 398);
+            this.txtAutore.Name = "txtAutore";
+            this.txtAutore.Size = new System.Drawing.Size(200, 39);
+            this.txtAutore.TabIndex = 6;
+            // 
             // FormInserimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtAutore);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTit);
             this.Controls.Add(this.btnInserisci);
@@ -104,5 +124,7 @@
         private Button btnInserisci;
         private TextBox txtTit;
         private Label label2;
+        private Label label3;
+        private TextBox txtAutore;
     }
 }

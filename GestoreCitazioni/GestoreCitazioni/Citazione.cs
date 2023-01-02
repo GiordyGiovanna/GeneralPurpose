@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestoreCitazioni
 {
-    internal class Citazione
+    public class Citazione
     {
         public int Id { get => id; set => id = value; }
         public string Titolo { get => titolo; set => titolo = value; }
@@ -23,21 +23,23 @@ namespace GestoreCitazioni
 
         public const String FILENAME = "Citazioni.txt";
 
-        public Citazione(string tit, string cit) 
+        public Citazione(string tit, string cit, string auth) 
         {
             Id = generaId();
             Titolo = tit;
             Cit = cit;
             dataTicks = DateTime.Now.Ticks;
             Data = new DateTime(dataTicks);
+            Author = auth;
         }
 
-        public Citazione(int id, string tit, string cit, long dt)
+        public Citazione(int id, string tit, string cit, long dt, string auth)
         {
             Id = id;
             Titolo = tit;
             Cit = cit;
             Data = new DateTime(dt);
+            Author = auth;
         }
 
         private int generaId(string filename = FILENAME)

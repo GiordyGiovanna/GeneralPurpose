@@ -22,15 +22,20 @@ namespace GestoreCitazioni
         {
             if (checkInserimento())
             {
-                Citazione newCitazione = new Citazione(txtTit.Text, rtbCit.Text);
+                Citazione newCitazione = new Citazione(txtTit.Text, rtbCit.Text, txtAutore.Text);
                 WRfile.saveNewCit(newCitazione, FILENAME);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Parametro mancante", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private bool checkInserimento()
         {
             bool ret = true;
-            ret = rtbCit.Text != "" || txtTit.Text != "";
+            ret = rtbCit.Text != "" || txtTit.Text != "" || txtAutore.Text != "";
             return ret;
         }
     }
