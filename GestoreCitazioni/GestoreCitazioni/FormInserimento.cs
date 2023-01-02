@@ -16,10 +16,22 @@ namespace GestoreCitazioni
         {
             InitializeComponent();
         }
+        public const String FILENAME = "Citazioni.txt";
 
         private void btnInserisci_Click(object sender, EventArgs e)
         {
-            Citazione newCitazione = new Citazione(txtTit.Text, rtbCit.Text);
+            if (checkInserimento())
+            {
+                Citazione newCitazione = new Citazione(txtTit.Text, rtbCit.Text);
+                WRfile.saveNewCit(newCitazione, FILENAME);
+            }
+        }
+
+        private bool checkInserimento()
+        {
+            bool ret = true;
+            ret = rtbCit.Text != "" || txtTit.Text != "";
+            return ret;
         }
     }
 }
