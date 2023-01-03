@@ -39,9 +39,12 @@ namespace GestoreCitazioni
         {
             // Open another Form form to see and modify the cit.
             // Coming better soon
-            Modify_Detail mod = new Modify_Detail(list[e.RowIndex]);
+            if(e.RowIndex > 0 && e.RowIndex < list.Count)
+            {
+                Modify_Detail mod = new Modify_Detail(list[e.RowIndex]);
+                mod.ShowDialog();
+            }
 
-            mod.ShowDialog();
         }
     }
 }
